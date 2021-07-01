@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class UserController {
     }
 
     @PostMapping("users")
-    public ResponseEntity<Object> createUser(@RequestBody User user) {
+    public ResponseEntity<Object> createUser(@Valid @RequestBody User user) {
         // We want to return the appropriate HTTP code for resources created => 201
         // WHat's the URI of the new resource created?
         User savedUser = userService.save(user);
