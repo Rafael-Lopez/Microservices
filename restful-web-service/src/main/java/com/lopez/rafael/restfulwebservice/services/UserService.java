@@ -1,5 +1,6 @@
 package com.lopez.rafael.restfulwebservice.services;
 
+import com.lopez.rafael.restfulwebservice.exceptions.UserNotFoundException;
 import com.lopez.rafael.restfulwebservice.models.User;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +40,7 @@ public class UserService {
             }
         }
 
-        return null;
+        throw new UserNotFoundException("id-" + id);
     }
 
     public User deleteById(int id) {
@@ -53,6 +54,6 @@ public class UserService {
             }
         }
 
-        return null;
+        throw new UserNotFoundException("id-" + id);
     }
 }
