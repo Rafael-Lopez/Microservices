@@ -15,6 +15,9 @@ The configuration for the Spring Cloud Config Server is located at https://githu
    - naming-server (Eureka Naming Server)
    - api-gateway (Spring Cloud Gateway)
 
+Zipkin is the Distributed Tracing system we are using for this project. Lunch a Zipkin container by running 
+"docker run -p 9411:9411 openzipkin/zipkin:2.23"
+
 | Application  | Port |
 | ------------- | ------------- |
 | Limits Microservice  | 8080, 8081, ...  |
@@ -23,3 +26,4 @@ The configuration for the Spring Cloud Config Server is located at https://githu
 | Currency Conversion Microservice  | 8100, 8101, 8102, ...  |
 | Netflix Eureka Naming Server  | 8761  |
 | API Gateway  | 8765  |
+| Zipkin Distributed Tracing Server  | 9411  |
