@@ -1,5 +1,6 @@
 package com.lopez.rafael.currencyexchangeservice.controllers;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +17,9 @@ public class CircuitBreakerController {
     // Resilience4j's default retry strategy is to try 3 times if there's an error (exception).
     // Only after the third failure, it will return the actual error
     // @Retry(name = "default")
-    @Retry(name = "sample-api", fallbackMethod = "hardcodedResponse")
+    // @Retry(name = "sample-api", fallbackMethod = "hardcodedResponse")
+    // Look at the diagram https://resilience4j.readme.io/docs/circuitbreaker#introduction to understand Circuit Breaker
+    @CircuitBreaker(name = "default", fallbackMethod = "hardcodedResponse")
     public String sampleApi() {
         logger.info("Sample API call received");
 
