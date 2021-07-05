@@ -16,7 +16,7 @@ public class CircuitBreakerController {
     // Resilience4j's default retry strategy is to try 3 times if there's an error (exception).
     // Only after the third failure, it will return the actual error
     // @Retry(name = "default")
-    @Retry(name = "sample-api")
+    @Retry(name = "sample-api", fallbackMethod = "hardcodedResponse")
     public String sampleApi() {
         logger.info("Sample API call received");
 
@@ -26,5 +26,10 @@ public class CircuitBreakerController {
         );
 
         return forEntity.getBody();
+    }
+
+    // You can have different fallback methods based on the exception
+    public String hardcodedResponse(Exception ex) {
+        return "fallback-response";
     }
 }
