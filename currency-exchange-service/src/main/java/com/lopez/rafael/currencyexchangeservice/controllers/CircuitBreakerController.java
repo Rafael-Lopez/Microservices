@@ -1,6 +1,8 @@
 package com.lopez.rafael.currencyexchangeservice.controllers;
 
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +31,24 @@ public class CircuitBreakerController {
         );
 
         return forEntity.getBody();
+    }
+
+    @GetMapping("/sample-api-rate-limiter")
+    // Use RateLimiter when you want to allow only x number of calls over a y period of time
+    // Look at application.properties for the custom configuration we added for the default instance
+    @RateLimiter(name="default")
+    public String sampleApiRateLimiter() {
+        logger.info("Sample API call received");
+        return "sample-api";
+    }
+
+    @GetMapping("/sample-api-bulkhead")
+    // Use Bulkhead to limit the amount of concurrent calls
+    // Look at application.properties for the sample-api configuration
+    @Bulkhead(name="sample-api")
+    public String sampleApiBulkhead() {
+        logger.info("Sample API call received");
+        return "sample-api";
     }
 
     // You can have different fallback methods based on the exception
