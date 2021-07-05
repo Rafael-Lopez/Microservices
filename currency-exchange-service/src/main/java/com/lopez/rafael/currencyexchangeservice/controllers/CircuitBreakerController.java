@@ -15,7 +15,8 @@ public class CircuitBreakerController {
     @GetMapping("/sample-api")
     // Resilience4j's default retry strategy is to try 3 times if there's an error (exception).
     // Only after the third failure, it will return the actual error
-    @Retry(name = "default")
+    // @Retry(name = "default")
+    @Retry(name = "sample-api")
     public String sampleApi() {
         logger.info("Sample API call received");
 
