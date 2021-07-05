@@ -31,6 +31,11 @@ public class CurrencyConversionController {
         uriVariables.put("from", from);
         uriVariables.put("to", to);
 
+        // TODO: We are directly calling localhost:8000 and this does not really work when running inside Docker
+        // One option you have is to create an environment variable and use an environment variable in here, or the other
+        // option is instead of localhost, you can say currency-exchange and use the service registry, which is provided
+        // by Docker, internally you'd be able to use that to call the application. So, instead of localhost,
+        // currency-exchange. For now, it's not really important.
         ResponseEntity<CurrencyConversion> responseEntity = new RestTemplate().getForEntity(
                 "http://localhost:8000/currency-exchange/from/{from}/to/{to}",
                 CurrencyConversion.class,

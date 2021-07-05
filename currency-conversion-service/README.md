@@ -1,9 +1,9 @@
 # Currency Conversion Microservice
 
-*** URL ***
+## URL
 http://localhost:8100/currency-conversion/from/USD/to/INR/quantity/10
 
-*** Response Structure ***
+## Response Structure
 {
   "id": 10001,
   "from": "USD",
@@ -13,3 +13,9 @@ http://localhost:8100/currency-conversion/from/USD/to/INR/quantity/10
   "totalCalculatedAmount": 650.00,
   "environment": "8000 instance-id"
 }
+
+## Build Docker image
+.\mvnw spring-boot:build-image -DskipTests
+
+## Run Docker container
+docker run -p 8100:8100 rafaellopez/currency-conversion-service:0.0.1-SNAPSHOT
