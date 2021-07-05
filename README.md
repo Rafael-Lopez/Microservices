@@ -14,3 +14,12 @@ The configuration for the Spring Cloud Config Server is located at https://githu
    - currency-conversion-service
    - naming-server (Eureka Naming Server)
    - api-gateway (Spring Cloud Gateway)
+
+| Application  | Port |
+| ------------- | ------------- |
+| Limits Microservice  | 8080, 8081, ...  |
+| Spring Cloud Config Server  | 8888  |
+| Currency Exchange Microservice  | 8000, 8001, 8002, ..  |
+| Currency Conversion Microservice  | 8100, 8101, 8102, ...  |
+| Netflix Eureka Naming Server  | 8761  |
+| API Gateway  | 8765  |
