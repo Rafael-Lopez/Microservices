@@ -51,6 +51,20 @@
 			<groupId>io.github.resilience4j</groupId>
 			<artifactId>resilience4j-spring-boot2</artifactId>
 		</dependency>
+        <!-- Whenever we are talking about microservices and tracing, you'd want to be able to trace the request
+        	 across multiple microservices. And to be able to do that, each request should be assigned a unique Id.
+             Sleuth is one of the frameworks which actually assigns a unique Id to each request. And as the request
+             goes across multiple microservices, the Id is maintained and the information is sent out to the tracing
+             server using that specific Id. And this allows us to trace the request across multiple microservices. -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+        <!-- https://spring.io/projects/spring-cloud-sleuth -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
