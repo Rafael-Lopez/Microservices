@@ -3,6 +3,10 @@
 ## URL
 http://localhost:8100/currency-conversion/from/USD/to/INR/quantity/10
 
+## API Gateway URL
+http://localhost:8765/currency-conversion/from/EUR/to/INR/quantity/10
+http://localhost:8765/currency-conversion-feign/from/EUR/to/INR/quantity/10
+
 ## Response Structure
 {
   "id": 10001,

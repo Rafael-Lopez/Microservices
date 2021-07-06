@@ -3,6 +3,9 @@
 ## URL
 http://localhost:8000/currency-exchange/from/USD/to/INR
 
+## API Gateway URL
+http://localhost:8765/currency-exchange/from/USD/to/INR
+
 ## Response Structure
 {
    "id":10001,
