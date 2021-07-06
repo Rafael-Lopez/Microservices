@@ -65,6 +65,22 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
 		</dependency>
+		<!-- Distributed Tracing (Asynchronous) -->
+		<!-- Right now, what we are trying to do is actually directly connect to distributed tracing server over
+ 			 HTTP. So, API Gateway, Currency Conversion services, Currency Exchange service, all of these would
+ 			 be sending the information out to the Distributed Tracing Server using HTTP calls. And the distributed tracing
+			 server would be storing it to an in-memory database and be providing a UI around it.
+			 However, consider a scenario when the Distributed Tracing Server is down. What would happen?
+			 The information from these microservices is lost. And to prevent that from happening, what we can do is,
+			 we can have a queue in between. We can have a queue like Rabbit MQ in between. All the microservices can
+			 send the information out to the Rabbit MQ queue and the Distributor Tracing Server can be picking up
+			 the information from the Rabbit MQ. This would ensure that even if the Distributor Tracing Server is down,
+			 the microservices can keep sending messages to Rabbit MQ. And when the Distributor Tracing Server is up,
+			 it can pick up the messages from the queue. This is the recommended architecture. -->
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

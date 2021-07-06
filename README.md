@@ -27,3 +27,4 @@ Zipkin is the Distributed Tracing system we are using for this project. Lunch a 
 | Netflix Eureka Naming Server  | 8761  |
 | API Gateway  | 8765  |
 | Zipkin Distributed Tracing Server  | 9411  |
+| RabbitMQ  | 15672  |
